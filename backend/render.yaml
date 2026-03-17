@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: lockerus-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: FRONTEND_URL
+        value: https://lockerus-web.vercel.app
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        sync: false
