@@ -2,15 +2,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Reemplazar esto con las credenciales reales de una consola de Firebase
+// Credenciales reales del proyecto LockerUS-App
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyCZVoMKDcocnCd_AqsJ9nFX2L0SdWhMvtU",
+  authDomain: "lockerus-app.firebaseapp.com",
+  projectId: "lockerus-app",
+  storageBucket: "lockerus-app.firebasestorage.app",
+  messagingSenderId: "1050188037516",
+  appId: "1:1050188037516:web:ee161c780432521fe4aaa9"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
