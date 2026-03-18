@@ -1,6 +1,62 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Scale, DollarSign, ArrowRight } from 'lucide-react';
+
+const Calculator = () => {
+  const [weight, setWeight] = useState(1);
+  const [value, setValue] = useState(100);
+  const TRM = 4000;
+  const SHIPPING_RATE = 4.5; // USD per LB
+
+  const totalUSD = weight * SHIPPING_RATE;
+  const totalCOP = totalUSD * TRM;
+
+  return (
+    <div className="glass-panel p-8 animate-slide-up">
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex-col gap-4">
+          <label className="text-sm font-semibold flex items-center gap-2">
+            <Scale size={16} className="text-primary" /> Peso del paquete (Libras)
+          </label>
+          <input 
+            type="number" 
+            value={weight} 
+            onChange={(e) => setWeight(Math.max(1, e.target.value))}
+            className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded p-3 text-white"
+          />
+          
+          <label className="text-sm font-semibold mt-4 flex items-center gap-2">
+            <DollarSign size={16} className="text-primary" /> Valor declarado (USD)
+          </label>
+          <input 
+            type="number" 
+            value={value} 
+            onChange={(e) => setValue(Math.max(1, e.target.value))}
+            className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded p-3 text-white"
+          />
+          
+          {value > 200 && (
+            <div className="mt-4 p-3 rounded bg-[rgba(245,158,11,0.1)] border border-[rgba(245,158,11,0.3)]">
+              <p className="text-xs text-warning">Nota: Compras superiores a $200 USD pagan IVA del 19% en Colombia.</p>
+            </div>
+          )}
+        </div>
+
+        <div className="bg-[rgba(79,70,229,0.1)] rounded-xl p-6 flex-col justify-center items-center text-center border border-[rgba(79,70,229,0.2)]">
+          <p className="text-sm text-muted mb-2">Costo estimado de envío</p>
+          <h2 className="text-4xl font-bold text-gradient mb-1">${totalUSD.toFixed(2)} USD</h2>
+          <p className="text-xl font-semibold text-primary opacity-80">~ ${totalCOP.toLocaleString()} COP</p>
+          <div className="w-full h-[1px] bg-[rgba(255,255,255,0.1)] my-6"></div>
+          <p className="text-xs text-muted mb-6">Basado en tarifa de $4.5 USD/Lb y TRM referencial $4.000 COP.</p>
+          <Link to="/login" className="btn btn-primary w-full group">
+            Obtener mi Casillero <ArrowRight size={18} className="group-hover:translate-x-1 transition" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 function Landing() {
   return (
