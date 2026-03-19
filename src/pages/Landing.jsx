@@ -82,49 +82,42 @@ function Landing() {
         </div>
       </header>
 
-      <main className="container pt-32 pb-24 flex-col items-center">
+      <main className="container pt-20 pb-24 flex-col items-center">
         {/* Tracking Search Home */}
-        <div className="w-full max-w-2xl mx-auto mb-16 animate-fade-in">
+        <div className="w-full flex flex-col items-center mb-16 animate-fade-in">
           <div className="tracking-search glass">
             <input 
               type="text" 
-              placeholder="Rastrea tu paquete (Ejem: TBA123456789)" 
+              placeholder="Rastrea tu paquete..." 
               value={tracking}
               onChange={(e) => setTracking(e.target.value)}
-              className="flex-1"
             />
-            <button className="btn btn-primary rounded-full px-8">Rastrear</button>
+            <button className="btn btn-primary rounded-full px-6">Rastrear</button>
           </div>
-          <div className="flex justify-center gap-6 mt-4 text-xs text-muted font-medium uppercase tracking-widest opacity-60">
-             <span>🚀 Entregas Rápidas</span>
-             <span>🛡️ Seguro Incluido</span>
-             <span>💳 Pagos en Pesos</span>
-          </div>
+          <p className="text-[10px] mt-4 uppercase tracking-[0.3em] opacity-40">Entregas Rápidas • Seguro Incluido • Pagos en Pesos</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-1 grid-cols-2 gap-12 items-center">
           <div className="text-left animate-slide-up">
-            <h1 className="text-6xl md:text-7xl font-black mb-8 leading-[0.9] text-white">
-              Tu Casillero en <span className="text-primary">USA</span> para <span className="text-secondary italic underline decoration-4 underline-offset-8">Colombia</span>.
+            <h1 className="text-white mb-6">
+              Tu Casillero en <span className="text-primary">USA</span> para <span className="text-secondary italic">Colombia</span>.
             </h1>
-            <p className="text-xl text-muted/80 mb-10 max-w-xl font-light">
-              Compra en tus tiendas favoritas de Estados Unidos y recibe en tiempo récord. Sin complicaciones aduaneras y con las mejores tarifas del país.
+            <p className="text-lg mb-8 max-w-lg">
+              Compra en tus tiendas favoritas de Estados Unidos y recibe en tiempo récord sin complicaciones aduaneras.
             </p>
             <div className="flex gap-4 items-center">
-              <Link to="/login" className="btn btn-primary px-10 py-4 rounded-xl text-lg shadow-glow">Empezar Mi Envío</Link>
-              <div className="flex -space-x-3 ml-4 items-center">
-                {[1,2,3].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-bg-color bg-slate-800 flex items-center justify-center text-[10px] font-bold">+500k</div>
-                ))}
-                <span className="ml-4 text-sm font-semibold opacity-70 italic text-primary">+500,000 Usuarios confían</span>
+              <Link to="/login" className="btn btn-primary px-8 py-3 rounded-xl shadow-glow">Empezar Mi Envío</Link>
+              <div className="hidden md:flex items-center gap-2 ml-4">
+                <div className="w-2 h-2 rounded-full bg-success animate-pulse"></div>
+                <span className="text-xs font-bold text-success/80">Sistemas en línea</span>
               </div>
             </div>
           </div>
           
-          <div className="relative animate-float">
-             <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 blur-[60px] rounded-full scale-75"></div>
-             <div className="glass-panel p-2 rounded-3xl border border-white/10 hover:border-primary/40 transition-colors duration-500">
-               <img src="/hero-shipping.png" alt="App Preview" className="w-full rounded-2xl grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+          <div className="relative animate-float flex justify-center">
+             <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full scale-75"></div>
+             <div className="glass-panel p-1 rounded-3xl border border-white/5 max-w-[450px] overflow-hidden">
+               <img src="/hero-shipping.png" alt="App Preview" className="w-full h-auto object-cover rounded-2xl" />
              </div>
           </div>
         </div>
@@ -132,39 +125,38 @@ function Landing() {
         {/* Pricing/Plans Section */}
         <div className="mt-32 w-full">
            <div className="text-center mb-16">
-             <h2 className="text-4xl font-black text-white mb-4">Planes de Envío</h2>
-             <p className="text-muted text-lg">Selecciona la velocidad y tarifa que mejor se adapte a ti.</p>
+             <h2 className="text-white mb-3">Planes de Envío</h2>
+             <p className="">Tarifas competitivas para cada necesidad.</p>
            </div>
            
-           <div className="grid md:grid-cols-3 gap-8">
-              <div className="feature-card flex-col items-center">
-                 <div className="text-primary mb-4 p-4 rounded-2xl bg-primary/10">Standard</div>
-                 <h3 className="text-3xl font-black text-white">$4.50 <span className="text-sm font-normal text-muted">/ LB</span></h3>
-                 <p className="text-sm text-center text-muted mb-8 py-4 border-b border-white/5 w-full">Ideal para compras personales ocasionales. Entrega 4-6 días.</p>
-                 <Link to="/login" className="btn btn-glass w-full rounded-full">Suscribirme</Link>
+           <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+              <div className="glass-panel p-8 flex-col items-center text-center">
+                 <div className="text-primary text-xs font-black uppercase tracking-widest mb-4">Standard</div>
+                 <h3 className="text-2xl font-black text-white mb-2">$4.50 <span className="text-xs font-normal opacity-50">/ LB</span></h3>
+                 <p className="text-xs mb-8">Personal ocasional. Entrega 4-6 días.</p>
+                 <Link to="/login" className="btn btn-glass w-full rounded-full">Elegir</Link>
               </div>
 
-              <div className="feature-card flex-col items-center ring-2 ring-primary relative">
-                 <div className="absolute top-0 right-8 transform -translate-y-1/2 bg-primary text-black text-[10px] font-black px-4 py-1 rounded-full tracking-widest">MOST POPULAR</div>
-                 <div className="text-secondary mb-4 p-4 rounded-2xl bg-secondary/10 font-bold">Rocket Prime</div>
-                 <h3 className="text-3xl font-black text-white">$3.90 <span className="text-sm font-normal text-muted">/ LB</span></h3>
-                 <p className="text-sm text-center text-muted mb-8 py-4 border-b border-white/5 w-full">Para compradores frecuentes. Prioridad en bodega. Entrega 3-5 días.</p>
-                 <Link to="/login" className="btn btn-primary w-full rounded-full">Lo quiero ahora</Link>
+              <div className="glass-panel p-8 flex-col items-center text-center border-primary/30 bg-primary/5">
+                 <div className="text-secondary text-xs font-black uppercase tracking-widest mb-4">Rocket Prime</div>
+                 <h3 className="text-2xl font-black text-white mb-2">$3.90 <span className="text-xs font-normal opacity-50">/ LB</span></h3>
+                 <p className="text-xs mb-8">Compradores frecuentes. Entrega 3-5 días.</p>
+                 <Link to="/login" className="btn btn-primary w-full rounded-full">Elegir</Link>
               </div>
 
-              <div className="feature-card flex-col items-center">
-                 <div className="text-muted mb-4 p-4 rounded-2xl bg-white/5">Business</div>
-                 <h3 className="text-3xl font-black text-white">$3.20 <span className="text-sm font-normal text-muted">/ LB</span></h3>
-                 <p className="text-sm text-center text-muted mb-8 py-4 border-b border-white/5 w-full">Mayoreo y tiendas. Consolidación gratuita. Entrega 2-4 días.</p>
-                 <Link to="/login" className="btn btn-glass w-full rounded-full">Contactar Ventas</Link>
+              <div className="glass-panel p-8 flex-col items-center text-center">
+                 <div className="text-muted text-xs font-black uppercase tracking-widest mb-4">Business</div>
+                 <h3 className="text-2xl font-black text-white mb-2">$3.20 <span className="text-xs font-normal opacity-50">/ LB</span></h3>
+                 <p className="text-xs mb-8">Mayoreo y tiendas. Entrega 2-4 días.</p>
+                 <Link to="/login" className="btn btn-glass w-full rounded-full">Elegir</Link>
               </div>
            </div>
         </div>
 
-        <section className="mt-40 w-full max-w-5xl mx-auto">
-          <div className="flex-col items-center text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4 italic">Calcula tu Ahorro</h2>
-            <p className="text-muted">Sin costos ocultos, solo transparencia radical.</p>
+        <section className="mt-32 w-full max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-white mb-3 italic">Calcula tu Ahorro</h2>
+            <p className="">Transparencia radical en tus envíos.</p>
           </div>
           <Calculator />
         </section>
