@@ -6,16 +6,18 @@ const { MercadoPagoConfig, Preference } = require('mercadopago');
 
 dotenv.config();
 
-// Inicializar Firebase Admin
-// En producción, esto debería usar credenciales de una service account de Google Cloud (.json)
-// Por ahora usamos default para no tumbar la app localmente si no existen las credenciales
+// Inicializar Firebase Admin con credenciales reales
 try {
+  const serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS || './serviceAccountKey.json');
   admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-    databaseURL: "https://lockerus-app-demo.firebaseio.com"
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: process.env.FIREBASE_DATABASE_URL || "https://lockerus-app.firebaseio.com"
   });
+  console.log("Firebase Admin SDK inicializado correctamente.");
 } catch (error) {
-  console.log("Firebase admin mock inicializado - (Faltan credenciales reales)");
+  console.error("Error inicializando Firebase Admin:", error.message);
+  // Fallback a default para evitar crash total en local
+  admin.initializeApp();
 }
 
 const db = admin.firestore?.() || null;
