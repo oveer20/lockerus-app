@@ -6,17 +6,25 @@ const { MercadoPagoConfig, Preference } = require('mercadopago');
 
 dotenv.config();
 
-// Inicializar Firebase Admin con credenciales reales
+// Inicializar Firebase Admin
 try {
-  const serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS || './serviceAccountKey.json');
+  let credential;
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+    // Si viene de variable de entorno (Mejor práctica para Render/Prod)
+    credential = admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON));
+  } else {
+    // Si viene de archivo local (Desarrollo)
+    const serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS || './serviceAccountKey.json');
+    credential = admin.credential.cert(serviceAccount);
+  }
+
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+    credential,
     databaseURL: process.env.FIREBASE_DATABASE_URL || "https://lockerus-app.firebaseio.com"
   });
   console.log("Firebase Admin SDK inicializado correctamente.");
 } catch (error) {
   console.error("Error inicializando Firebase Admin:", error.message);
-  // Fallback a default para evitar crash total en local
   admin.initializeApp();
 }
 
