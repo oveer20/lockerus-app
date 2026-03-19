@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Scale, DollarSign, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Scale, DollarSign, ArrowRight, Package } from 'lucide-react';
 
 const Calculator = () => {
   const [weight, setWeight] = useState(1);
