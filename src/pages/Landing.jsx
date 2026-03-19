@@ -43,7 +43,7 @@ const Calculator = () => {
           
           {value > 200 && (
             <div className="p-4 rounded-xl bg-secondary/10 border border-secondary/20">
-              <p className="text-xs text-secondary font-bold">⚠️ Compras > $200 USD pagan 19% IVA en Colombia.</p>
+              <p className="text-xs text-secondary font-bold">⚠️ Compras &gt; $200 USD pagan 19% IVA en Colombia.</p>
             </div>
           )}
         </div>
