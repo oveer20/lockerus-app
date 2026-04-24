@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Compras USA - Imagen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .post-image {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #2563eb 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .logo span {
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .title {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            font-size: 36px;
+            color: rgba(255,255,255,0.9);
+            margin: 0 0 40px 0;
+            font-weight: 500;
+        }
+        .features {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            color: white;
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        .feature-text {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .price {
+            background: #fbbf24;
+            color: #1e293b;
+            padding: 25px 60px;
+            border-radius: 20px;
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+        .price span {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .cta {
+            background: white;
+            color: #4f46e5;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 28px;
+            font-weight: 800;
+        }
+        .brands {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            gap: 20px;
+            opacity: 0.5;
+        }
+        .brand {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="post-image">
+        <div class="logo">Mis<span>Compras</span>USA</div>
+        <h1 class="title">🛒 Compra en USA</h1>
+        <p class="subtitle">Recibe en Colombia sin complicaciones</p>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📦</div>
+                <div class="feature-text">Casillero Miami</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✅</div>
+                <div class="feature-text">Seguro Incluido</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📍</div>
+                <div class="feature-text">Toda Colombia</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">3-10 días</div>
+            </div>
+        </div>
+        
+        <div class="price">$2.99 <span>USD/libra</span></div>
+        
+        <div class="cta">📲 WhatsApp: 315 259 7199</div>
+        
+        <div class="brands">
+            <div class="brand">Amazon</div>
+            <div class="brand">Nike</div>
+            <div class="brand">Apple</div>
+            <div class="brand">eBay</div>
+        </div>
+        
+        <div class="watermark">miscomprasusa.com</div>
+    </div>
+</body>
+</html>

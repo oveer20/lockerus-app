@@ -17,15 +17,19 @@ function Login() {
     setError('');
     
     try {
-      // Intentar login real con Firebase
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
-      // Para motivos de demostración, si falla por credenciales inválidas (mocked project) 
-      // Igual lo dejamos pasar al Dashboard para que puedas ver la maqueta 
-      // (Quitar este navigate en producción real)
-      navigate('/dashboard');
+      if (err.code === 'auth/invalid-email') {
+        setError('Correo electrónico inválido');
+      } else if (err.code === 'auth/user-not-found') {
+        setError('Usuario no encontrado');
+      } else if (err.code === 'auth/wrong-password') {
+        setError('Contraseña incorrecta');
+      } else {
+        setError('Error al iniciar sesión');
+      }
     } finally {
       setLoading(false);
     }
@@ -69,7 +73,7 @@ function Login() {
         </form>
 
         <p className="mt-6 text-center text-sm text-muted">
-          ¿No tienes cuenta? <Link to="/" className="text-primary font-semibold">Regístrate</Link>
+          ¿No tienes cuenta? <Link to="/register" className="text-primary font-semibold">Regístrate</Link>
         </p>
       </div>
     </div>
